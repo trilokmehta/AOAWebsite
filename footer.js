@@ -1,4 +1,164 @@
-// footer.js
+// --- 1. INJECT FOOTER CSS ---
+const footerCSS = `
+    /* --- NEXT-GEN FLOATING BUTTONS --- */
+    .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1000;
+    }
+    .float-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        background: var(--surface, rgba(255, 255, 255, 0.7));
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--surface-border, rgba(255, 255, 255, 0.4));
+        box-shadow: 0 20px 40px -10px rgba(27, 77, 62, 0.08);
+        color: var(--primary, #1b4d3e);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-decoration: none;
+    }
+    .float-btn:hover {
+        transform: scale(1.1) translateY(-5px);
+        background: var(--primary, #1b4d3e);
+        color: white;
+        border-color: var(--primary, #1b4d3e);
+        box-shadow: 0 15px 25px rgba(27, 77, 62, 0.3);
+    }
+
+    /* --- NEXT-GEN DARK FOOTER --- */
+    footer {
+        background: var(--primary-dark, #0f2e25);
+        color: #fff;
+        padding: 80px 0 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 40px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+    .footer-col h4 {
+        font-family: "Inter", sans-serif;
+        color: var(--accent, #c5a059);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+    }
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .footer-col ul li {
+        margin-bottom: 12px;
+    }
+    .footer-col ul li a,
+    .footer-col p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .footer-col ul li a:hover {
+        color: #fff;
+        padding-left: 5px;
+    }
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        margin-right: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+        background: var(--accent, #c5a059);
+        transform: translateY(-3px);
+    }
+    .payment-icons i {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-right: 12px;
+    }
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .language-selector span {
+        color: var(--accent, #c5a059);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+    .language-selector a {
+        color: rgba(255, 255, 255, 0.7);
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .language-selector a:last-child {
+        border-right: none;
+    }
+    .language-selector a:hover {
+        color: #fff;
+    }
+
+    /* --- GOOGLE TRANSLATE OVERRIDES --- */
+    #google_translate_element { display: none !important; }
+    .skiptranslate iframe, .goog-te-banner-frame { display: none !important; }
+    body { top: 0px !important; }
+    .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+
+    @media (max-width: 768px) {
+        .footer-bottom {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+        .language-selector {
+            justify-content: center;
+        }
+    }
+`;
+
+// Create a style tag and append it to the head
+const footerStyleTag = document.createElement("style");
+footerStyleTag.innerHTML = footerCSS;
+document.head.appendChild(footerStyleTag);
+
+// --- 2. INJECT FOOTER HTML ---
 const footerHTML = `
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
@@ -56,9 +216,10 @@ const footerHTML = `
                 <div>
                     © Copyrights 2026 - 2027. Abacus Olympic Association. All Rights Reserved.
                 </div>
-                <div id="google_translate_element" style="display:none;"></div>
+                
+                <!-- Hidden Google Translate Element -->
+                <div id="google_translate_element"></div>
 
-                <!-- Custom Language Selector -->
                 <div class="language-selector">
                     <span>Change Language:</span>
                     <a href="javascript:void(0)" onclick="changeLanguage('en')">English</a>
@@ -79,7 +240,7 @@ const footerHTML = `
 
 document.getElementById("footer-placeholder").innerHTML = footerHTML;
 
-// 1. Initialize Google Translate
+// --- 3. GOOGLE TRANSLATE LOGIC ---
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
     {
@@ -91,23 +252,20 @@ function googleTranslateElementInit() {
   );
 }
 
-// 2. Load the Google Translate Script dynamically
+// Load the Google Translate Script dynamically
 const translateScript = document.createElement("script");
 translateScript.type = "text/javascript";
 translateScript.src =
   "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
 document.body.appendChild(translateScript);
 
-// 3. The function that triggers when you click a custom link
-function changeLanguage(langCode) {
-  // Find the hidden Google Translate dropdown
+// Trigger Translation
+window.changeLanguage = function (langCode) {
   const selectField = document.querySelector(
     "#google_translate_element select",
   );
   if (selectField) {
-    // Change its value to the selected language
     selectField.value = langCode;
-    // Force the dropdown to trigger the translation
     selectField.dispatchEvent(new Event("change"));
   }
-}
+};

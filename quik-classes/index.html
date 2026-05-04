@@ -48,18 +48,39 @@
         overflow-x: hidden;
         background-color: var(--bg-base);
         background-image:
-          radial-gradient(at 0% 0%, rgba(197, 160, 89, 0.1) 0px, transparent 50%),
-          radial-gradient(at 100% 0%, rgba(27, 77, 62, 0.08) 0px, transparent 50%),
-          radial-gradient(at 100% 100%, rgba(197, 160, 89, 0.1) 0px, transparent 50%),
-          radial-gradient(at 0% 100%, rgba(27, 77, 62, 0.08) 0px, transparent 50%);
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          );
         background-attachment: fixed;
       }
 
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
-      h1, h2, h3, h4 {
+      h1,
+      h2,
+      h3,
+      h4 {
         font-family: "Cinzel", serif;
         color: var(--primary);
         margin: 0 0 1rem 0;
@@ -70,13 +91,13 @@
         color: var(--text-muted);
         margin-top: 0;
       }
-      
+
       a {
         text-decoration: none;
         color: inherit;
         transition: all 0.3s ease;
       }
-      
+
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -146,7 +167,9 @@
         border-radius: var(--radius-lg);
         padding: 40px;
         box-shadow: var(--shadow-soft);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         position: relative;
         overflow: hidden;
       }
@@ -159,7 +182,11 @@
       .icon-glass {
         width: 60px;
         height: 60px;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.4)
+        );
         border: 1px solid rgba(255, 255, 255, 0.8);
         border-radius: 16px;
         display: flex;
@@ -171,10 +198,19 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       }
 
-      .bento-large { grid-column: span 2; grid-row: span 2; }
-      .bento-wide { grid-column: span 2; }
-      .bento-square { grid-column: span 1; }
-      .bento-full { grid-column: span 4; }
+      .bento-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .bento-wide {
+        grid-column: span 2;
+      }
+      .bento-square {
+        grid-column: span 1;
+      }
+      .bento-full {
+        grid-column: span 4;
+      }
 
       /* Video Container for responsive iframes */
       .video-container {
@@ -185,7 +221,7 @@
         border-radius: 16px;
         margin-top: 20px;
         border: 1px solid var(--surface-border);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       }
       .video-container iframe {
         position: absolute;
@@ -228,36 +264,68 @@
         border-radius: 16px;
         text-align: center;
       }
-      .coaching-box h4 { margin-bottom: 5px; font-family: "Inter", sans-serif;}
-      .coaching-box span { font-size: 24px; font-weight: 700; color: var(--primary); }
+      .coaching-box h4 {
+        margin-bottom: 5px;
+        font-family: "Inter", sans-serif;
+      }
+      .coaching-box span {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary);
+      }
 
       /* --- RESPONSIVE ENHANCEMENTS --- */
       @media (max-width: 1024px) {
-        .bento-grid { grid-template-columns: repeat(2, 1fr); }
-        .bento-large { grid-column: span 2; grid-row: span 1; }
-        .bento-full { grid-column: span 2; }
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .bento-large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+        .bento-full {
+          grid-column: span 2;
+        }
       }
 
       @media (max-width: 768px) {
-        .hero { padding: 140px 0 60px; }
-        .hero h1 { font-size: 38px; }
-        .bento-card { padding: 24px; }
-        .bento-large, .bento-wide, .bento-square, .bento-full { grid-column: span 1; }
-        .bento-grid { grid-template-columns: 1fr; }
+        .hero {
+          padding: 140px 0 60px;
+        }
+        .hero h1 {
+          font-size: 38px;
+        }
+        .bento-card {
+          padding: 24px;
+        }
+        .bento-large,
+        .bento-wide,
+        .bento-square,
+        .bento-full {
+          grid-column: span 1;
+        }
+        .bento-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- 1. HEADER PLACEHOLDER -->
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="hero-badge"><i class="fa-solid fa-gem"></i> Complimentary No-Fee Session</div>
-        <h1>Experience the World's Most <br /><span>Advanced Mind Math</span></h1>
+        <div class="hero-badge">
+          <i class="fa-solid fa-gem"></i> Complimentary No-Fee Session
+        </div>
+        <h1>
+          Experience the World's Most <br /><span>Advanced Mind Math</span>
+        </h1>
         <p>
-          It is time to witness highly sophisticated training. We transform mathematics into a subject that is fearless, speedy, and genuinely fun.
+          It is time to witness highly sophisticated training. We transform
+          mathematics into a subject that is fearless, speedy, and genuinely
+          fun.
         </p>
       </div>
     </section>
@@ -266,14 +334,27 @@
     <section class="bento-section">
       <div class="container">
         <div class="bento-grid">
-          
           <!-- Wide Card: Trial Video -->
           <div class="bento-card bento-wide">
             <div class="icon-glass"><i class="fa-solid fa-play"></i></div>
             <h3>See The Transformation</h3>
-            <p>Our experienced coaches use high-engagement techniques that keep students attentive and immersed in the learning process.</p>
+            <p>
+              Our experienced coaches use high-engagement techniques that keep
+              students attentive and immersed in the learning process.
+            </p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/uU34NqRgoME?rel=0&showinfo=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe
+                src="https://www.youtube.com/embed/uU34NqRgoME?rel=0&showinfo=0&modestbranding=1"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
 
@@ -281,42 +362,73 @@
           <div class="bento-card bento-square">
             <div class="icon-glass"><i class="fa-solid fa-eye"></i></div>
             <h3>100% Focus</h3>
-            <p>We replace anxiety with excitement. Our methods are designed to make students eager for their next lesson.</p>
+            <p>
+              We replace anxiety with excitement. Our methods are designed to
+              make students eager for their next lesson.
+            </p>
           </div>
 
           <!-- Square Card: Speed -->
           <div class="bento-card bento-square">
             <div class="icon-glass"><i class="fa-solid fa-rocket"></i></div>
             <h3>Fearless Speed</h3>
-            <p>Watch as complex calculations become easy. We build the confidence to tackle numbers without fear.</p>
+            <p>
+              Watch as complex calculations become easy. We build the confidence
+              to tackle numbers without fear.
+            </p>
           </div>
 
           <!-- Large Card: Spotlight -->
           <div class="bento-card bento-large">
             <div class="icon-glass"><i class="fa-solid fa-star"></i></div>
             <h2>Student Spotlight</h2>
-            <div class="hero-badge" style="margin-bottom: 10px;">Miss Ruthvika | Age 7</div>
-            <p>At Abacus Olympic Association, our greatest reward is the joy and pride of our parents. Our students don't just perform; they shine.</p>
-            <div class="video-container" style="padding-bottom: 100%;"> <!-- Adjusted padding for portrait video -->
-              <iframe src="https://www.youtube.com/embed/pLsXDHfWGOg?rel=0&playsinline=1" allowfullscreen></iframe>
+            <div class="hero-badge" style="margin-bottom: 10px">
+              Miss Ruthvika | Age 7
+            </div>
+            <p>
+              At Abacus Olympic Association, our greatest reward is the joy and
+              pride of our parents. Our students don't just perform; they shine.
+            </p>
+            <div class="video-container" style="padding-bottom: 100%">
+              <!-- Adjusted padding for portrait video -->
+              <iframe
+                src="https://www.youtube.com/embed/pLsXDHfWGOg?rel=0&playsinline=1"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
 
           <!-- Large Card: Prodigies Today -->
           <div class="bento-card bento-large">
-            <div class="icon-glass"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h2>Prodigies Today,<br>Leaders of Tomorrow</h2>
-            <p>We don't just teach math; we cultivate character. The discipline, focus, and speed required to master mental calculations define the world's most successful leaders.</p>
+            <div class="icon-glass">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h2>Prodigies Today,<br />Leaders of Tomorrow</h2>
+            <p>
+              We don't just teach math; we cultivate character. The discipline,
+              focus, and speed required to master mental calculations define the
+              world's most successful leaders.
+            </p>
             <ul class="check-list">
-              <li><i class="fa-solid fa-check"></i> Building Unshakable Confidence</li>
-              <li><i class="fa-solid fa-check"></i> Developing Lightning-Fast Decision Making</li>
-              <li><i class="fa-solid fa-check"></i> Fostering a Lifetime Love for Learning</li>
+              <li>
+                <i class="fa-solid fa-check"></i> Building Unshakable Confidence
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Developing Lightning-Fast
+                Decision Making
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i> Fostering a Lifetime Love for
+                Learning
+              </li>
             </ul>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/lM3cLjx8sjk?rel=0" allowfullscreen></iframe>
+              <iframe
+                src="https://www.youtube.com/embed/lM3cLjx8sjk?rel=0"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -324,31 +436,60 @@
     <!-- Bento Grid 2: Methodology & Advantage -->
     <section class="bento-section">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px;">
-          <i class="fa-solid fa-microchip" style="color: var(--accent); margin-right: 10px;"></i>
+        <h2 style="text-align: center; margin-bottom: 40px">
+          <i
+            class="fa-solid fa-microchip"
+            style="color: var(--accent); margin-right: 10px"
+          ></i>
           The Scientific Methodology
         </h2>
 
         <div class="bento-grid">
-          
           <!-- Full Width Card: The Unfair Advantage -->
           <div class="bento-card bento-full">
-            <div class="bento-grid" style="grid-template-columns: 1fr 1fr; gap: 40px; display: flex; flex-wrap: wrap;">
-              <div style="flex: 1; min-width: 300px;">
+            <div
+              class="bento-grid"
+              style="
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                display: flex;
+                flex-wrap: wrap;
+              "
+            >
+              <div style="flex: 1; min-width: 300px">
                 <div class="icon-glass"><i class="fa-solid fa-bolt"></i></div>
                 <h2>The Unfair Advantage</h2>
-                <div class="hero-badge">Adaptive Learning • Verified Excellence</div>
-                <p><strong>"Early finishers are always at an advantage."</strong></p>
-                <p>In a competitive world, time is your child's most valuable asset. Our scientifically adaptive methodology delivers results up to 37% faster than traditional methods.</p>
+                <div class="hero-badge">
+                  Adaptive Learning • Verified Excellence
+                </div>
+                <p>
+                  <strong>"Early finishers are always at an advantage."</strong>
+                </p>
+                <p>
+                  In a competitive world, time is your child's most valuable
+                  asset. Our scientifically adaptive methodology delivers
+                  results up to 37% faster than traditional methods.
+                </p>
                 <ul class="check-list">
-                  <li><i class="fa-solid fa-check"></i> Central Board Oversight</li>
-                  <li><i class="fa-solid fa-check"></i> Unbiased Independent Testing</li>
-                  <li><i class="fa-solid fa-check"></i> Transparent True Evaluation</li>
+                  <li>
+                    <i class="fa-solid fa-check"></i> Central Board Oversight
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-check"></i> Unbiased Independent
+                    Testing
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-check"></i> Transparent True
+                    Evaluation
+                  </li>
                 </ul>
               </div>
-              <div style="flex: 1; min-width: 300px;">
+              <div style="flex: 1; min-width: 300px">
                 <div class="video-container">
-                  <iframe src="https://www.youtube.com/embed/NX-bk8hS_50?autoplay=0&controls=1&showinfo=0&rel=0&modestbranding=1" allowfullscreen></iframe>
+                  <iframe
+                    src="https://www.youtube.com/embed/NX-bk8hS_50?autoplay=0&controls=1&showinfo=0&rel=0&modestbranding=1"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -358,7 +499,12 @@
           <div class="bento-card bento-wide">
             <div class="icon-glass"><i class="fa-solid fa-brain"></i></div>
             <h3>The Revolutionary B.E.E. Method</h3>
-            <p>Our highly scientific methods synchronize your auditory, visual, and cognitive functions to maximize learning speed. Every 1 minute spent learning with us is equivalent to 2 minutes in any ordinary abacus class.</p>
+            <p>
+              Our highly scientific methods synchronize your auditory, visual,
+              and cognitive functions to maximize learning speed. Every 1 minute
+              spent learning with us is equivalent to 2 minutes in any ordinary
+              abacus class.
+            </p>
             <div class="coaching-grid">
               <div class="coaching-box"><h4>🧠 Brain</h4></div>
               <div class="coaching-box"><h4>👂 Ear</h4></div>
@@ -370,16 +516,22 @@
           <div class="bento-card bento-square">
             <div class="icon-glass"><i class="fa-solid fa-chart-line"></i></div>
             <h3>Verified Evaluation</h3>
-            <p>Assessment isn't about grading; it's about growth. Our transparent reviews create an opportunity for students to recognize their own progress.</p>
+            <p>
+              Assessment isn't about grading; it's about growth. Our transparent
+              reviews create an opportunity for students to recognize their own
+              progress.
+            </p>
           </div>
 
           <!-- Square Card: Olympiad -->
           <div class="bento-card bento-square">
             <div class="icon-glass"><i class="fa-solid fa-medal"></i></div>
             <h3>Global Excellence</h3>
-            <p>We proudly nominate our scholars twice every year for the esteemed Abacus Olympiad, giving them a global platform to shine.</p>
+            <p>
+              We proudly nominate our scholars twice every year for the esteemed
+              Abacus Olympiad, giving them a global platform to shine.
+            </p>
           </div>
-
         </div>
       </div>
     </section>
@@ -387,27 +539,51 @@
     <!-- Bento Grid 3: Curriculum & Coaching Plan -->
     <section class="bento-section">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px;">
-          <i class="fa-solid fa-layer-group" style="color: var(--accent); margin-right: 10px;"></i>
+        <h2 style="text-align: center; margin-bottom: 40px">
+          <i
+            class="fa-solid fa-layer-group"
+            style="color: var(--accent); margin-right: 10px"
+          ></i>
           Curriculum & Coaching Plan
         </h2>
 
         <div class="bento-grid">
-          
           <!-- Wide Card: Coaching Timelines -->
           <div class="bento-card bento-wide">
             <div class="icon-glass"><i class="fa-solid fa-clock"></i></div>
             <h3>Quik Abacus Coaching Plan</h3>
-            <p>Sophisticated, Advanced and Hybrid Abacus Coaching Classes. Faster Learning with Interesting methods.</p>
+            <p>
+              Sophisticated, Advanced and Hybrid Abacus Coaching Classes. Faster
+              Learning with Interesting methods.
+            </p>
             <div class="coaching-grid">
-              <div class="coaching-box"><h4>Age 4+</h4><span>21 Mos</span></div>
-              <div class="coaching-box"><h4>Age 8+</h4><span>18 Mos</span></div>
-              <div class="coaching-box"><h4>Age 11+</h4><span>15 Mos</span></div>
-              <div class="coaching-box"><h4>Age 14+</h4><span>12 Mos</span></div>
+              <div class="coaching-box">
+                <h4>Age 4+</h4>
+                <span>21 Mos</span>
+              </div>
+              <div class="coaching-box">
+                <h4>Age 8+</h4>
+                <span>18 Mos</span>
+              </div>
+              <div class="coaching-box">
+                <h4>Age 11+</h4>
+                <span>15 Mos</span>
+              </div>
+              <div class="coaching-box">
+                <h4>Age 14+</h4>
+                <span>12 Mos</span>
+              </div>
             </div>
-            <ul class="check-list" style="margin-top: 30px;">
-              <li><i class="fa-solid fa-check"></i> <strong>Mini-Group:</strong> Peer learning & competitive spirit.</li>
-              <li><i class="fa-solid fa-check"></i> <strong>One-to-One:</strong> Personalized pace & dedicated mentor attention.</li>
+            <ul class="check-list" style="margin-top: 30px">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <strong>Mini-Group:</strong> Peer learning & competitive spirit.
+              </li>
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <strong>One-to-One:</strong> Personalized pace & dedicated
+                mentor attention.
+              </li>
             </ul>
           </div>
 
@@ -415,16 +591,37 @@
           <div class="bento-card bento-wide">
             <div class="icon-glass"><i class="fa-solid fa-book-open"></i></div>
             <h3>10 Levels of Mastery</h3>
-            <p>The world's most advanced 360° brain development course, bridging mental math with the academic syllabus.</p>
+            <p>
+              The world's most advanced 360° brain development course, bridging
+              mental math with the academic syllabus.
+            </p>
             <ul class="check-list">
-              <li><i class="fa-solid fa-arrow-right"></i> <strong>Foundation (L1):</strong> Pincer Grip & Seeding Visualization</li>
-              <li><i class="fa-solid fa-arrow-right"></i> <strong>Beginners (L2-L3):</strong> Logic, Formulas & Advanced Visualization</li>
-              <li><i class="fa-solid fa-arrow-right"></i> <strong>Intermediate (L4):</strong> Speed Mastery & Stamina</li>
-              <li><i class="fa-solid fa-arrow-right"></i> <strong>Expert (L5-L8):</strong> Mental Multiplication, Division, Decimals</li>
-              <li><i class="fa-solid fa-arrow-right"></i> <strong>The Pro (L9-L10):</strong> Applied Math, Perfect & Imperfect Roots</li>
+              <li>
+                <i class="fa-solid fa-arrow-right"></i>
+                <strong>Foundation (L1):</strong> Pincer Grip & Seeding
+                Visualization
+              </li>
+              <li>
+                <i class="fa-solid fa-arrow-right"></i>
+                <strong>Beginners (L2-L3):</strong> Logic, Formulas & Advanced
+                Visualization
+              </li>
+              <li>
+                <i class="fa-solid fa-arrow-right"></i>
+                <strong>Intermediate (L4):</strong> Speed Mastery & Stamina
+              </li>
+              <li>
+                <i class="fa-solid fa-arrow-right"></i>
+                <strong>Expert (L5-L8):</strong> Mental Multiplication,
+                Division, Decimals
+              </li>
+              <li>
+                <i class="fa-solid fa-arrow-right"></i>
+                <strong>The Pro (L9-L10):</strong> Applied Math, Perfect &
+                Imperfect Roots
+              </li>
             </ul>
           </div>
-
         </div>
       </div>
     </section>
@@ -433,7 +630,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- 3. LOAD THE JAVASCRIPT FILES AT THE END -->
-    <script src="header.js"></script>
-    <script src="footer.js"></script>
+    <script src="/header.js"></script>
+    <script src="/footer.js"></script>
   </body>
 </html>
